@@ -22,6 +22,7 @@ console.clear();
     //? la segunda forma es por medio del paquete yargs , este paquete ya trae implementado funcionalidades que podemos usar , una de estas es el poder acceder a los argumentos enviados por consola 
  */
 
-createTable(argv.b , argv.l)
-    .then(message => console.log(message))
-    .catch(error => console.log(error))
+
+createTable(argv.b , argv.l , argv.h)
+   .then(message => console.log(message))
+   .catch(error => console.log(error))
