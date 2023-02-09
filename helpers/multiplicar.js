@@ -7,13 +7,9 @@ const fs = require('fs');
 //* import { writeFile } from 'node:fs'  
 
 
-const createTable = async (numBase) =>{
+const createTable = async (numBase , listar = false) =>{
     
     if( !numBase ) throw new Error('Es necesario añadir algun numero');
-
-    console.log('===================');
-    console.log(`  Tabla del ` +  numBase  );
-    console.log('===================');
 
 
     let salida = '';
@@ -32,7 +28,14 @@ const createTable = async (numBase) =>{
         })
      */
 
+    if(listar) {
+        console.log('===================');
+        console.log(`  Tabla del ` +  numBase  );
+        console.log('===================\n');
 
+        console.log(salida);
+    }
+    
     //? escritura de un archivo de forma asincrona
     try {
         fs.writeFileSync(`tabla-${numBase}.txt` , salida );
@@ -43,8 +46,6 @@ const createTable = async (numBase) =>{
     }
 
 }
-
-
 
 module.exports = { 
     createTable
